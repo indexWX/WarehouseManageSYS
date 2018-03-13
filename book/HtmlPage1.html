@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>邮件收发室管理系统</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <link href="css/jq22.css" rel="stylesheet" type="text/css" />
+    <script language='javascript' src="js/jq22.js"></script>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <style>
+        .sl_log_bor4 {
+            border: 4px solid #ededed;
+            border-radius: 4px;
+            background: #f5f5f5;
+            margin: 0px;
+        }
+
+        .sl_log_lf {
+            padding: 0px;
+        }
+    </style>
+</head>
+<body style="background:#fafafa;">
+    <form>
+        <div class="container">
+            <div class="row sl_log_top" style="margin-top:20px;">
+                <div class="logo_1 col-sm-6">
+                    <img src="Content/images/logo_school.png" />
+                </div>
+            </div>
+            <div class="row sl_log_bor4" style="background: #fff;margin-top:40px">
+                <div class="col-sm-8 hidden-xs sl_log_lf"> <img class="img-responsive" src="Content/images/login_bg_pic2.jpg" /> </div>
+                <div class="col-sm-4 sl_log_lf form-horizontal" style="padding: 10px 12px 0px 12px;height: 378px;overflow: hidden;">
+                    <h5>用户登录</h5>
+                    <input type="hidden" name="_eventId" value="submit" />
+                    <p id="msg"></p>
+                    <div class="form-group" style="margin-top:40px;margin-left:2px">
+                        <span class="control-group" id="login">
+                            <div class="input-group">
+                                <div class="input-group-addon"><img src="Content/images/log_ic01.png" width="16" height="16" /></div>
+                                <input class="form-control" type="text" placeholder="请输入账号" id="LoginName" autocomplete="off" onblur="checkLoginName(this.value);" />
+
+                            </div>
+                        </span>
+                    </div>
+                    <div class="form-group" style="margin-top:40px;margin-left:2px">
+                        <span class="control-group" id="password">
+                            <div class="input-group">
+                                <div class="input-group-addon"><img src="Content/images/log_ic02.png" width="16" height="16" /></div>
+                                <input class="form-control" type="password" placeholder="请输入密码" id="Password" autocomplete="off" onblur="checkPassword(this.value);" />
+                            </div>
+                         </span>
+                    </div>
+
+                    <div class="form-group" id="jzw" style="margin-top:40px;margin-left:2px">
+                        <font id="rufont" style="font:100 12px tahoma, Arial, " 宋体";="" padding-top="" 0px;"="">
+                            <input type="checkbox" name="rememberUser" id="rememberUser" value="true" tabindex="5" onclick="rememberUserCheck(this)" />
+                            记住密码&nbsp;&nbsp;&nbsp;&nbsp;
+                        </font>
+                        <font d="rufont" style="font:100 12px tahoma, Arial, " 宋体";="" padding-top="" 0px;"="">
+                            <input type="checkbox" name="rememberMe" id="rememberMe" value="true" tabindex="5" />
+                            自动登录<!--两周内不用再登录-->
+                        </font>
+                    </div>
+
+                    <div class="form-group" style="margin-top:80px;margin-left:2px">
+                        <button type="button" class="form-control  btn-primary" id="LoginButton" onclick="logincheck()">登录</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
+<script>
+    function logincheck() {
+        var Password = $("#Password").val();
+        var LoginName = $("#LoginName").val();
+        $.post("/home/LoginCheck",
+                     {
+                         "Password": Password,
+                         "LoginName": LoginName
+                     },
+                     function (data, status) {
+
+                         if (data.code == 1) {
+                             location.href = "/home/index";
+                             window.alert(data.message);
+
+                         } else {
+                             window.alert(data.message);
+                         }
+                     });
+    }
+</script>
+
+<script type="text/javascript">
+    function checkLoginName(loginName) {
+        if (loginName.search(/^(13[0-9]{9})|(1[5789][0-9]{9})$/) == -1) {
+            showTooltips('login', '请输入正确的手机号码');
+        } else {
+            hideTooltips('login');
+        }
+    }
+    function checkPassword(pwd) {
+        if (pwd.search(/^.{6,20}$/) == -1) {
+            showTooltips('password', '请输入正确的密码');
+        } else {
+            hideTooltips('password');
+        }
+    }
+</script>

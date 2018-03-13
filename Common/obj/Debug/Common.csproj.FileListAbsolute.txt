@@ -1,0 +1,17 @@
+C:\Users\cmx\Desktop\book\Common\bin\Debug\book.Common.dll
+C:\Users\cmx\Desktop\book\Common\bin\Debug\book.Common.pdb
+C:\Users\cmx\Desktop\book\Common\bin\Debug\COM.Excel.dll
+C:\Users\cmx\Desktop\book\Common\bin\Debug\Excel.dll
+C:\Users\cmx\Desktop\book\Common\bin\Debug\OpenSmtp.dll
+C:\Users\cmx\Desktop\book\Common\bin\Debug\OWC10Chart.dll
+C:\Users\cmx\Desktop\book\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\cmx\Desktop\book\Common\obj\Debug\book.Common.dll
+C:\Users\cmx\Desktop\book\Common\obj\Debug\book.Common.pdb
+C:\Users\asus1\Desktop\book\Common\bin\Debug\book.Common.dll
+C:\Users\asus1\Desktop\book\Common\bin\Debug\book.Common.pdb
+C:\Users\asus1\Desktop\book\Common\bin\Debug\COM.Excel.dll
+C:\Users\asus1\Desktop\book\Common\bin\Debug\Excel.dll
+C:\Users\asus1\Desktop\book\Common\bin\Debug\OpenSmtp.dll
+C:\Users\asus1\Desktop\book\Common\bin\Debug\OWC10Chart.dll
+C:\Users\asus1\Desktop\book\Common\obj\Debug\book.Common.dll
+C:\Users\asus1\Desktop\book\Common\obj\Debug\book.Common.pdb

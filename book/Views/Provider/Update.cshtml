@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+    book.Model.T_Base_Provider item = ViewBag.book;
+}
+
+<!DOCTYPE html>
+
+
+<div class="pageContent">
+    <form method="post" action="/provider/updatesave" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+        <div class="pageFormContent" layoutH="56">
+            <input name="Id" type="hidden" value="@item.Id" />
+            <p>
+                <label>名字</label>
+                <input name="Name" type="text" size="30" value="@item.Name" />
+            </p>
+            <p>
+                <label>电话</label>
+                <input name="Phone" class="required" type="text" size="30" value="@item.Phone" />
+            </p>
+            <p>
+                <label>地址</label>
+                <input type="text" class="required" name="Address" size="30" value="@item.Address" />
+            </p>
+            <p>
+                <label>邮箱</label>
+                <input type="text" name="Email" class="textInput" value="@item.Email">
+            </p>
+            <p>
+                <label>联系人</label>
+                <input name="Connector" class="textInput " type="text" size="30" value="@item.Connector" />
+            </p>
+        </div>
+        <div class="formBar">
+            <ul>
+                @*<li><a class="buttonActive" href="javascript:;"><span>保存</span></a></li>*@
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <li>
+                    <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

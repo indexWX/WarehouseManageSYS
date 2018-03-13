@@ -1,0 +1,78 @@
+﻿<h2 class="contentTitle">入库单</h2>
+<form action="/StockIn/AddSave" method="post" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone)">
+    <div class="pageContent">
+        <div class="pageFormContent" layoutH="97">
+            <dl class="nowrap">
+                <dt>入库时间</dt>
+                <dd>
+                    <input class="date textInput readonly valid" name="StockTime" type="text" />
+                </dd>
+            </dl>
+
+            <dl class="nowrap">
+                <dt>经手人</dt>
+                <dd>
+                    @*<input name="StockName" type="text" size="30" class="textInput valid" />*@
+                    <input class="textInput valid" name="StockName" type="text" />
+                </dd>
+            </dl>
+
+            <dl class="nowrap">
+                <dt>供应商</dt>
+                <dd>
+                    <input name="Provider.Id" type="hidden" />
+                    <input class="textInput valid" name="Provider.Name" suggestfields="Name,Id" suggesturl="/Provider/GetAllProvider" lookupgroup="Provider" type="text" />
+                </dd>
+            </dl>
+
+
+            <div class="divider"></div>
+            <h3 class="contentTitle">主从结构</h3>
+            <div class="tabs">
+                <div class="tabsHeader">
+                    <div class="tabsHeaderContent">
+                        <ul>
+                            <li class="selected"><a href="javascript:void(0)"><span>从表1【Struts2 示例】</span></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="tabsContent" height="100%">
+                    <div>
+                        <table class="list nowrap itemDetail" addButton="新建从表1条目" width="100%">
+                            <thead>
+                                <tr>
+                                    <th type="lookup" name="items[#index#].item.BookName"
+                                        lookupGroup="items[#index#].item"
+                                        suggestUrl="/book/GetAll"
+                                        suggestFields="BookName"
+                                        postField="keywords"
+                                        size="12" fieldClass="required">书名</th>
+                                    <th type="text" name="items[#index#].item.Id" size="12" fieldClass="required">编号</th>
+                                    <th type="text" name="items[#index#].item.Price" defaultVal="#index#" size="12" fieldClass="digits">价格</th>
+                                    <th type="text" name="items[#index#].item.Author" defaultVal="#index#" size="12" fieldClass="digits">作者</th>
+                                    <th type="text" name="items[#index#].item.Version" defaultVal="#index#" size="12" fieldClass="digits">版本</th>
+                                    <th type="text" name="items[#index#].item.Amount" defaultVal="#index#" size="12" fieldClass="digits">数量</th>
+                                    <th type="text" name="items[#index#].Discount" defaultVal="#index#" size="12" fieldClass="number">折扣</th>
+                                    <th type="del" width="60">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="tabsFooter">
+                    <div class="tabsFooterContent"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button class="close" type="button">关闭</button></div></div></li>
+            </ul>
+        </div>
+    </div>
+</form>
